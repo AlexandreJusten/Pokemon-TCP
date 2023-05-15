@@ -1,0 +1,15 @@
+[
+    {
+      "Name": "Charizard",
+      "Life": 39,
+      "Attack": 52,
+      "Defense": 43
+    },
+    {
+      "Name": "Blastoise",
+      "Life": 44,
+      "Attack": 48,
+      "Defense": 65
+    }
+  ]
+  
