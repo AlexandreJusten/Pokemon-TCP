@@ -18,8 +18,8 @@ function War () {
 
   const[life,setLife]= useState(1)  
   const[life2,setLife2]= useState(1)
-  const[backLife,setBackLife ]= useState(50)
-  const[backLife2,setBackLife2] = useState(50)
+  const[lifeBackup,setLifeBackup ]= useState(50)
+  const[life2Backup,setLife2Backup] = useState(50)
 
   const [pointer, setPointer] = useState(false);
   const [pointer2, setPointer2] = useState(false);
@@ -37,13 +37,13 @@ function War () {
   }, [user2]);
 
   useEffect(() => {
-    if (life < backLife ) {
+    if (life < lifeBackup ) {
       setPointer(true);
       setTimeout(() => {
         setPointer(false);
       }, 3000);
     } 
-    if (life2 < backLife2 ) {
+    if (life2 < life2Backup ) {
       setPointer2(true);
       setTimeout(() => {
         setPointer2(false);
@@ -64,19 +64,37 @@ function War () {
     return () => clearInterval(interval);
   }, []);
 
+  useEffect(() => {
+    if (lifeBackup !== null && life !== lifeBackup) {
+      
+      setLifeBackup(lifeBackup);
+    }
+    
+    setLifeBackup(life);
+  }, [life, lifeBackup]);
+  
+  useEffect(() => {
+    if (life2Backup !== null && life2 !== life2Backup) {
+     
+      setLife2Backup(life2Backup);
+    }
+    
+    setLife2Backup(life2);
+  }, [life2, life2Backup]);
+
   return (
     <div >
       <Containner>
       {pointer === true ? (
       <div className="pointer">
-        <h2>{ backLife - life}</h2>
+        <h2>DANO</h2>
       </div>
     ) : (
       <div></div>
     )}
     {pointer2 === true ? (
       <div className="pointer2">
-         <h2>{ backLife2 - life2 }</h2>
+         <h2>DANO</h2>
       </div>
     ) : (
       <div></div>
@@ -106,7 +124,7 @@ function War () {
       <div></div>
     )}
         <div className='users-on'>
-        <p>You: {id} | User 2:{user2} teste:{backLife}</p>
+        <p>You: {id} | User 2:{user2}</p>
         </div>
         <PlacarInfo propsUser1={id+''} propsUser2={user2+''} propsLife1={life} propsLife2={life2}/>
       <div className='pokemon-div'>
