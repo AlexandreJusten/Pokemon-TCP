@@ -56,4 +56,32 @@ img{
       margin-left:-45vw;
       font-weight: bold;
      }
+     .end{
+      position: absolute;
+      margin-left: -53.5vw;
+      margin-top: -30vw;
+      width:110vw;
+      height:100vw;
+      background-color: #000000cc;
+      z-index:10000
+     }
+     .end-text{
+      margin-left: 3.5vw;
+      margin-top:20vw;
+     }
+     .pointer{
+      position: absolute;
+      color:red;
+      margin-left:20vw;
+      z-index:9999;
+      font-weight: bold;
+     }
+     .pointer2{
+      position: absolute;
+      color:red;
+      margin-left:-20vw;
+      margin-top:4vw;
+      z-index:9999;
+      font-weight: bold;
+     }
 `

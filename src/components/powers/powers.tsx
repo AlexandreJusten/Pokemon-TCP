@@ -8,7 +8,7 @@ import powerCharizard3 from '@/assets/power/Charizard/3.png'
 import powerBlastoise1 from '@/assets/power/Blastoise/1.png'
 import powerBlastoise2 from '@/assets/power/Blastoise/2.png'
 import powerBlastoise3 from '@/assets/power/Blastoise/3.png'
-
+import { enviarMensagem } from '@/controller/conection/cliente';
 interface PowersProps {
   props: string;
 }
@@ -19,6 +19,7 @@ function Powers(props: PowersProps) {
     const min = 9;
     const max = 20;
     const randomNumber = Math.floor(Math.random() * (max - min + 1)) + min;
+    enviarMensagem('attack:'+randomNumber)
   }
   return (
     <div>
@@ -35,7 +36,7 @@ function Powers(props: PowersProps) {
                 <span>    </span>
                 <a href='#' onClick={random} data-pokemon="Blastoise" className='b'><img src={powerCharizard2} alt="Descrição da imagem" /></a>
                 <span>  </span>
-                <a href='#' data-pokemon="Blastoise" className='c'><img src={powerCharizard3} alt="Descrição da imagem" /></a>
+                <a href='#' onClick={random} data-pokemon="Blastoise" className='c'><img src={powerCharizard3} alt="Descrição da imagem" /></a>
               </div>
             ) : (
               <div>

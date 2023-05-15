@@ -3,7 +3,8 @@ import net from 'net';
 const client = new net.Socket();
 var respostaDoServidor = ''; 
 
-client.connect(8080, 'localhost', () => {
+
+client.connect(8080, '192.168.3.3', () => {
   console.log('Conectado ao servidor.');
 });
 
